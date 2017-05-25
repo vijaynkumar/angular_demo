@@ -1,0 +1,58 @@
+<script type="text/javascript" src="./app/main/xlsx.core.min.js"></script>
+<script type="text/javascript" src="./app/main/angular-js-xlsx.js"></script>
+<div class="container-fluid">
+ <div class="row">
+  <nav class="navbar top-nav">
+   <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+       <a class="navbar-brand" href="javascript:void(0)">
+          Shoping
+        </a>
+     </div>
+
+     <!-- Collect the nav links, forms, and other content for toggling -->
+       <div class="collapse navbar-collapse" id="upper-nav">
+          <ul class="nav navbar-nav">
+             <li class="active"><a href="#"> Home</a></li>
+          </ul>
+        </div>
+  </nav>
+      <!-- <div>
+        <div>
+          <uib-carousel interval="main.myInterval">
+            <uib-slide ng-repeat="slide in main.slides" active="main.active" index="$index">
+              <img ng-src="{{slide.image}}" style="margin:auto;width:100%;height:300px;" />
+              <div class="carousel-caption">
+                <h4>Slide {{$index+1}}</h4>
+              </div>
+            </uib-slide>
+          </uib-carousel>
+        </div>
+      </div> -->
+     <div class="col-md-12">
+     <js-xls onread="read" onerror="error"></js-xls>
+         <h4>select category</h4>
+         <div ng-if="main.dataList.length > 0">
+            <button class="btn btn-link pull-right" ng-click="main.exportToExcel('#tableToExport')">Export to Excel</button>
+            <table class="table table-bordered" id="tableToExport">
+             <thead>
+              <tr>
+                <th>chart</th>
+                <th>x</th>
+                <th>y</th>
+                <th>interval</th>
+              </tr>
+             </thead>
+              <tbody>
+                <tr ng-repeat="data in main.dataList">
+                  <td>{{data.chart}}</td>
+                  <td>{{data.x}}</td>
+                  <td>{{data.y}}</td>
+                  <td>{{data.interval}}</td>
+                </tr>
+              </tbody>
+            </table>
+         </div>
+     </div>
+  </div>
+</div>
